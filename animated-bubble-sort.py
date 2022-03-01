@@ -18,6 +18,7 @@ current_x = 0
 spawned = False
 sorted = False
 k = 1
+comparisons = 0
 WHITE = (255, 255, 255)
 while True:
 	win.fill((0,0,0))
@@ -29,11 +30,14 @@ while True:
 		current_x += winWidth/len(L)
 	for j in range(0, len(L) - k):
 		if L[j] > L[j + 1]:
+			comparisons += 1
 			L[j], L[j+1], = L[j+1], L[j]
 	if all(L[i] <= L[i+1] for i in range(len(L) - 1)):
 		WHITE = (0,255,0)
 	if k <= len(L) + 1:
 		k += 1
 	current_x = 0
+
+	print(f'Comparisons: {comparisons}')
 	pygame.display.update()
 	clock.tick(120)
