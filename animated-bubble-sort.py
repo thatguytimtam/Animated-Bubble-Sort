@@ -10,10 +10,18 @@ pygame.display.set_caption('Animated Bubble Sort')
 clock = pygame.time.Clock()
 #font = pygame.font.Font('assets/fonts/Market_Deco.ttf', 36)
 #### PYGAME AND WINDOW INIT. ####
+
+#### LIST TO SORT HERE --------------------
+
 L = []
 for i in range(500):
 	L.append(random.randint(1, 1000))
 L.reverse()
+
+
+SORT_SPEED = 60
+#### LIST TO SORT HERE --------------------
+
 current_x = 0
 spawned = False
 sorted = False
@@ -40,4 +48,4 @@ while True:
 
 	print(f'Comparisons: {comparisons}')
 	pygame.display.update()
-	clock.tick(120)
+	clock.tick(SORT_SPEED)
